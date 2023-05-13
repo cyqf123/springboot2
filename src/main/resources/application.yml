@@ -1,0 +1,14 @@
+  #spring连接数据库数据源的配置
+  spring:
+   datasource:
+     name: mdemo
+     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false
+     username: root
+     password: 3124
+     driver-class-name: com.mysql.jdbc.Driver
+#mybatis配置，xml文件位置，命名对应转换驼峰转 _
+  mybatis:
+    mapper-locations: classpath:/mapper/*.xml  # 扫描mapper.xml文件位置
+    type-aliases-package: com.example.pojo #加载别名
+    configuration:
+      map-underscore-to-camel-case: true  #开启驼峰适配

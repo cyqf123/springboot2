@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--第一个一致,对应Mapper接口-->
+<mapper namespace="com.example.mappers.UserMapper">
+
+    <!-- User login(@Param("username") String userName, @Param("password") String passWord);-->
+<select id="login" parameterType="String" resultType="com.example.pojo.User">
+    select `user_id`,`user_name`,
+           `pass_word`,`sex`
+    from   user
+    where user_id=#{userId} and pass_word=#{passWord}
+</select>
+
+    <!--  List<User> lookAllUser();//查询所有-->
+<select id="lookAllUser"  resultType="User">
+    select `user_id`,`user_name`,
+           `pass_word`,`sex`
+    from user
+</select>
+
+    <!--int selectNum();//查询数量-->
+    <select id="selectNum" resultType="java.lang.Integer">
+        select count(*)
+        from user
+    </select>
+
+</mapper>
